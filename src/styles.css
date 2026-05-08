@@ -1,3 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* Tema oscuro */
+@plugin "daisyui/theme" {
+  name: "solaris-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #1C1C1E;
+  --color-base-200: #2C2C2E;
+  --color-base-300: #3A3A3C;
+  --color-base-content: oklch(98% 0.003 247.858);
+  --color-primary: #FFD60A;
+  --color-primary-content: oklch(0% 0 0);
+  --color-secondary: #FF9F0A;
+  --color-secondary-content: oklch(0% 0 0);
+  --color-accent: #FFD60A;
+  --color-accent-content: oklch(0% 0 0);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: #0A84FF;
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: #FF9500;
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(63% 0.237 25.331);
+  --color-error-content: oklch(25% 0.092 26.042);
+  --radius-selector: 2rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* Tema claro */ 
+@plugin "daisyui/theme" {
+  name: "solaris-light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #F5F5F7;
+  --color-base-200: #FFFFFF;
+  --color-base-300: #E5E5EA;
+  --color-base-content: oklch(0% 0 0);
+  --color-primary: #FF9F0A;
+  --color-primary-content: oklch(0% 0 0);
+  --color-secondary: #FFD60A;
+  --color-secondary-content: oklch(0% 0 0);
+  --color-accent: #FF6B00;
+  --color-accent-content: oklch(0% 0 0);
+  --color-neutral: #09090b;
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: #007AFF;
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: #34C759;
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: #FF6B00;
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(63% 0.237 25.331);
+  --color-error-content: oklch(25% 0.092 26.042);
+  --radius-selector: 2rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
+}
