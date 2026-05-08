@@ -92,7 +92,7 @@
   <text x="158" y="126"
     font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif"
     font-size="13.5" font-weight="400" letter-spacing="3.5"
-    fill="url(#tagGrad)">METEOROLOGÍA · AEMET</text>
+    fill="url(#tagGrad)">MeteoEscuela · OpenMeteo</text>
 
   <!-- Thin accent line under tagline -->
   <rect x="158" y="134" width="220" height="0.8" rx="0.4" fill="#FFD60A" opacity="0.35"/>
