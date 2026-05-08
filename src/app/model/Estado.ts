@@ -1,0 +1,12 @@
+export enum Estado {
+    SOLEADO,
+    MAYORMENTE_SOLEADO,
+    PARCIALMENTE_NUBLADO,
+    NIEBLA,
+    LLOVIZNA,
+    LLUVIA,
+    NIEVE,
+    CHUBASCOS,
+    TORMENTA,
+    DESCONOCIDO
+}

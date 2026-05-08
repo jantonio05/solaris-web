@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+  <defs>
+
+    <!-- Glow filter for sun -->
+    <filter id="sunGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="blur1"/>
+      <feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft glow for text -->
+    <filter id="textGlow" x="-10%" y="-40%" width="120%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Shimmer gradient on text -->
+    <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="30%"  stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="50%"  stop-color="#FFD60A" stop-opacity="1"/>
+      <stop offset="70%"  stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <!-- Halo behind sun -->
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFD60A" stop-opacity="0.22"/>
+      <stop offset="60%"  stop-color="#FF9500" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#FF9500" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Subtle ray gradient -->
+    <linearGradient id="rayFade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FFD60A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFD60A" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Tagline gradient -->
+    <linearGradient id="tagGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#6B6B6D"/>
+      <stop offset="50%"  stop-color="#8E8E93"/>
+      <stop offset="100%" stop-color="#6B6B6D"/>
+    </linearGradient>
+
+  </defs>
+
+  <!-- Halo glow behind sun -->
+  <ellipse cx="90" cy="72" rx="62" ry="62" fill="url(#halo)"/>
+
+  <!-- Sun — outer glow ring -->
+  <circle cx="90" cy="72" r="32" fill="#FFD60A" opacity="0.08" filter="url(#sunGlow)"/>
+
+  <!-- Sun rays -->
+  <g stroke="#FFD60A" stroke-linecap="round" opacity="0.38">
+    <line x1="90" y1="26" x2="90" y2="36"  stroke-width="2"/>
+    <line x1="90" y1="108" x2="90" y2="118" stroke-width="2"/>
+    <line x1="46" y1="72" x2="56" y2="72"  stroke-width="2"/>
+    <line x1="124" y1="72" x2="134" y2="72" stroke-width="2"/>
+    <line x1="59" y1="41" x2="66" y2="48"  stroke-width="2"/>
+    <line x1="114" y1="96" x2="121" y2="103" stroke-width="2"/>
+    <line x1="121" y1="41" x2="114" y2="48" stroke-width="2"/>
+    <line x1="66" y1="96" x2="59" y2="103"  stroke-width="2"/>
+  </g>
+
+  <!-- Sun core -->
+  <circle cx="90" cy="72" r="20" fill="#FFD60A" opacity="0.92" filter="url(#sunGlow)"/>
+
+  <!-- Inner sun highlight -->
+  <circle cx="84" cy="66" r="6" fill="#FFFFFF" opacity="0.18"/>
+
+  <!-- Wordmark: shadow layer for depth -->
+  <text x="156" y="104"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif"
+    font-size="72" font-weight="200" letter-spacing="-3"
+    fill="#000000" opacity="0.25">Solaris</text>
+
+  <!-- Wordmark: shimmer fill -->
+  <text x="154" y="102"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif"
+    font-size="72" font-weight="200" letter-spacing="-3"
+    fill="url(#shimmer)" filter="url(#textGlow)">Solaris</text>
+
+  <!-- Tagline -->
+  <text x="158" y="126"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif"
+    font-size="13.5" font-weight="400" letter-spacing="3.5"
+    fill="url(#tagGrad)">METEOROLOGÍA · AEMET</text>
+
+  <!-- Thin accent line under tagline -->
+  <rect x="158" y="134" width="220" height="0.8" rx="0.4" fill="#FFD60A" opacity="0.35"/>
+
+</svg>
