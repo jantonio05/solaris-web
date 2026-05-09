@@ -11,6 +11,6 @@ export interface ITiempoHoy {
     humedad: Number;
     lluvia: Number;
     viento: IViento;
-    estado: Estado;
+    estado: String;
     unidades: IUnidades;
 }
