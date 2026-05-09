@@ -25,8 +25,12 @@ npm install
 
 ## Tecnologías
 
-- TypeScript
-- Angular
-- DaisyUI 
+- TypeScript -5.9.2
+- Angular - 20.3.4
+- DaisyUI - 5.5.19  
+
+<br>
+
+![Solaris preview](public/previews/solaris-preview-2.png)
 
 <p align="center">Realizado por <a href="github.com/jantonio05">jantonio05</a></p>
