@@ -5,8 +5,8 @@ import { Prediccion } from './pages/prediccion/prediccion';
 
 export const routes: Routes = [
     {path:'', redirectTo: 'inicio', pathMatch: 'full'},
-    {path: '**', redirectTo: 'inicio'},
     {path: 'inicio', component: Inicio},
-    {path: 'hoy:localidad', component: Hoy},
-    {path: 'prediccion:localidad:dias', component: Prediccion},
+    {path: 'hoy/:localidad', component: Hoy},
+    {path: 'prediccion/:localidad/:dias', component: Prediccion},
+    {path: '**', redirectTo: 'inicio'}
 ];
