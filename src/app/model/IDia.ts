@@ -7,5 +7,5 @@ export interface IDia {
     lluvia: Number;
     probabilidadLluvia: Number;
     viento: Number;
-    estado: Estado;
+    estado: String;
 }
