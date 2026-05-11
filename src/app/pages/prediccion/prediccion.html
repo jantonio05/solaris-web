@@ -1,5 +1,46 @@
-<solaris-header/>
+<solaris-header />
 
-<!-- Contenido relacionado con la obtención de información -->
+<main>
+  <div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content">
+      <div class="card w-full max-w-xl bg-base-100 shadow-md">
+        <div class="card-body">
+          <div class="grid" [ngClass]="obtenerNumeroColumnas()">
+            @for (dia of prediccion.dias; track $index) {
+              <div class="card bg-base-300 shadow-sm">
+                <div class="card-body p2">
+                  <h2 class="card-title">{{ dia.fecha }}</h2>
+                  <div class="flex items-center justify-between my-4">
+                    <div>
+                      <div
+                        class="badge mt-1 mb-1 badge-sm badge-soft"
+                        [ngClass]="obtenerTipoBadgeEstado(dia)"
+                      >
+                        {{ obtenerBadgeEstado(dia) }}
+                      </div>
+                      <p class="text-sm text-base-content/50 mt-1">
+                        Máx {{ dia.temperaturaMaxima
+                        }}{{ prediccion.unidades.temperatura.charAt(0) }} · Mín
+                        {{ dia.temperaturaMaxima
+                        }}{{ prediccion.unidades.temperatura.charAt(0) }}
+                      </p>
+                    </div>
 
-<solaris-footer/>
+                    <!-- Imagen según estado -->
+                    <img
+                      [src]="obtenerImagenEstado(dia)"
+                      [alt]="dia.estado"
+                      class="w-16 h-16 object-contain pl-2"
+                    />
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <solaris-footer />
+</main>
