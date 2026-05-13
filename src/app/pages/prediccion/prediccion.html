@@ -2,36 +2,37 @@
 
 <main>
   <div class="hero bg-base-200 min-h-screen">
-    <div class="hero-content">
-      <div class="card w-full max-w-xl bg-base-100 shadow-md">
+    <div class="hero-content text-center">
+      <!-- <h1 class="text-5xl font-bold"> {{ prediccion.ubicacion.ciudad }} </h1> -->
+      <div class="card w-auto bg-base-100 shadow-md">
         <div class="card-body">
           <div class="grid" [ngClass]="obtenerNumeroColumnas()">
             @for (dia of prediccion.dias; track $index) {
-              <div class="card bg-base-300 shadow-sm">
-                <div class="card-body p2">
+              <div class="card w-auto bg-base-300 shadow-sm">
+                <div class="card-body">
                   <h2 class="card-title">{{ dia.fecha }}</h2>
-                  <div class="flex items-center justify-between my-4">
+                  <div class="flex items-center justify-between my-2">
                     <div>
+                      <!-- Imagen según estado -->
+                      <img
+                        [src]="obtenerImagenEstado(dia)"
+                        [alt]="dia.estado"
+                        class="w-16 h-16 object-contain"
+                      />
+                      <!-- Badge estados -->
                       <div
-                        class="badge mt-1 mb-1 badge-sm badge-soft"
+                        class="badge mt-2 mb-1 badge-sm badge-soft"
                         [ngClass]="obtenerTipoBadgeEstado(dia)"
                       >
-                        {{ obtenerBadgeEstado(dia) }}
+                        {{ obtenerTextoBadgeEstado(dia) }}
                       </div>
+                      <!-- Información temperatura -->
                       <p class="text-sm text-base-content/50 mt-1">
-                        Máx {{ dia.temperaturaMaxima
-                        }}{{ prediccion.unidades.temperatura.charAt(0) }} · Mín
-                        {{ dia.temperaturaMaxima
-                        }}{{ prediccion.unidades.temperatura.charAt(0) }}
+                        Máx {{ dia.temperaturaMaxima }} {{ prediccion.unidades.temperatura.charAt(0) }} 
+                        · 
+                        Mín {{ dia.temperaturaMaxima }} {{ prediccion.unidades.temperatura.charAt(0) }}
                       </p>
                     </div>
-
-                    <!-- Imagen según estado -->
-                    <img
-                      [src]="obtenerImagenEstado(dia)"
-                      [alt]="dia.estado"
-                      class="w-16 h-16 object-contain pl-2"
-                    />
                   </div>
                 </div>
               </div>

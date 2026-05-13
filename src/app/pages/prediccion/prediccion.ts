@@ -41,10 +41,10 @@ export class Prediccion implements OnInit {
   }
 
   obtenerNumeroColumnas(): String[] {
-    return [`grid-cols-${this.dias}`, `gap-${this.dias}`]
+    return [`grid-cols-${this.dias.toString()}`, `gap-4`]
   }
 
-  obtenerBadgeEstado(dia: IDia): String {
+  obtenerTextoBadgeEstado(dia: IDia): String {
     switch (dia.estado) {
       case "soleado":
         return "Soleado"
