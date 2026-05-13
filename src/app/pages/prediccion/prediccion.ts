@@ -54,6 +54,8 @@ export class Prediccion implements OnInit {
         return "Parcialmente nublado"
       case "niebla":
         return "Niebla"
+      case "nublado":
+        return "Nublado"
       case "llovizna":
         return "Llovizna"
       case "lluvia":
@@ -84,6 +86,7 @@ export class Prediccion implements OnInit {
       case "chubascos":
       case "tormenta":
       case "nieve":
+      case "nublado":
         return `badge-secondary`;
 
       case "desconocido":
@@ -102,9 +105,12 @@ export class Prediccion implements OnInit {
         
       case "parcialmente_nublado":
         return "/estado/parcialmente_nublado.png"
+
       case "niebla":
         return "/estado/nublado.png";
-    
+      case "nublado":
+        return "/estado/nublado.png"
+
       case "llovizna":
       case "chubascos":
         return "/estado/llovizna.png"
