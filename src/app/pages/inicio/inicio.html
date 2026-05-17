@@ -10,18 +10,28 @@
           <!-- Input Municipio -->
           <fieldset class="fieldset">
             <legend class="fieldset-legend">Municipio</legend>
-            <input type="text" class="input" placeholder="Don Benito" />
+            <input
+              type="text"
+              class="input"
+              placeholder="Don Benito"
+              [(ngModel)]="municipio"
+              (keyup.enter)="buscar()"
+            />
           </fieldset>
 
           <!-- Selector opciones -->
-          <select class="select">
-            <option disabled selected>Opción</option>
-            <option>Tiempo de hoy</option>
-            <option>Pronóstico</option>
+          <select class="select" [(ngModel)]="accion">
+            <option disabled value="">Tipo de búsqueda</option>
+            <option value="hoy">Tiempo de hoy</option>
+            <option value="prediccion">Pronóstico</option>
           </select>
 
           <!-- Botón de buscar -->
-          <button class="btn btn-primary">
+          <button
+            class="btn btn-primary"
+            (click)="buscar()"
+            [disabled]="!municipio.trim() || !accion"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -37,13 +47,6 @@
           </button>
         </div>
       </div>
-      <!--
-        <div class="max-w-md">
-          <h1 class="text-5xl font-bold skeleton skeleton-text">Proximamente...</h1>
-          <p class="py-6">Actualmente este proyecto se encuentra en fase de desarrollo</p>
-          <button class="btn btn-primary">Ir al repositorio</button>
-        </div>
-      -->
     </div>
   </div>
 </section>
