@@ -1,47 +1,50 @@
 <solaris-header />
 
 <main>
-  <div class="hero bg-base-200 min-h-screen">
-    <div class="hero-content text-center">
-      <!-- <h1 class="text-5xl font-bold"> {{ prediccion.ubicacion.ciudad }} </h1> -->
-      <div class="card w-auto bg-base-100 shadow-md">
-        <div class="card-body">
-          <div class="grid" [ngClass]="obtenerNumeroColumnas()">
-            @for (dia of prediccion.dias; track $index) {
-              <div class="card w-auto bg-base-300 shadow-sm">
-                <div class="card-body">
-                  <h2 class="card-title">{{ dia.fecha }}</h2>
-                  <div class="flex items-center justify-between my-2">
-                    <div>
-                      <!-- Imagen según estado -->
-                      <img
-                        [src]="obtenerImagenEstado(dia)"
-                        [alt]="dia.estado"
-                        class="w-16 h-16 object-contain"
-                      />
-                      <!-- Badge estados -->
-                      <div
-                        class="badge mt-2 mb-1 badge-sm badge-soft"
-                        [ngClass]="obtenerTipoBadgeEstado(dia)"
-                      >
-                        {{ obtenerTextoBadgeEstado(dia) }}
-                      </div>
-                      <!-- Información temperatura -->
-                      <p class="text-sm text-base-content/50 mt-1">
-                        Máx {{ dia.temperaturaMaxima }} {{ prediccion.unidades.temperatura.charAt(0) }} 
-                        · 
-                        Mín {{ dia.temperaturaMaxima }} {{ prediccion.unidades.temperatura.charAt(0) }}
-                      </p>
-                    </div>
-                  </div>
+  <div class="bg-base-200 min-h-screen py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      @if (prediccion) {
+        <h1 class="text-3xl font-bold text-center mb-8">
+          Pronóstico para {{ prediccion.ubicacion.ciudad }}
+        </h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+          @for (dia of prediccion.dias; track $index) {
+            <div class="card bg-base-100 shadow-sm">
+              <div class="card-body items-center text-center p-4">
+                <h2 class="card-title text-sm font-semibold">{{ dia.fecha }}</h2>
+                <img
+                  [src]="obtenerImagenEstado(dia)"
+                  [alt]="dia.estado"
+                  class="w-14 h-14 object-contain my-2"
+                />
+                <div
+                  class="badge badge-sm badge-soft"
+                  [ngClass]="obtenerTipoBadgeEstado(dia)"
+                >
+                  {{ obtenerTextoBadgeEstado(dia) }}
                 </div>
+                <p class="text-sm font-medium mt-2">
+                  {{ dia.temperaturaMaxima }}{{ prediccion.unidades.temperatura.charAt(0) }}
+                  <span class="text-base-content/50 font-normal">
+                    / {{ dia.temperaturaMinima }}{{ prediccion.unidades.temperatura.charAt(0) }}
+                  </span>
+                </p>
+                <div class="divider my-1"></div>
+                <p class="text-xs text-base-content/60">
+                  <i class="bi bi-cloud-rain"></i>
+                  {{ dia.probabilidadLluvia }}% · {{ dia.lluvia }} {{ prediccion.unidades.lluvia }}
+                </p>
+                <p class="text-xs text-base-content/60">
+                  <i class="bi bi-wind"></i>
+                  {{ dia.viento }} {{ prediccion.unidades.viento }}
+                </p>
               </div>
-            }
-          </div>
+            </div>
+          }
         </div>
-      </div>
+      }
     </div>
   </div>
-
-  <solaris-footer />
 </main>
+
+<solaris-footer />

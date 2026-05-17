@@ -40,10 +40,6 @@ export class Prediccion implements OnInit {
     });
   }
 
-  obtenerNumeroColumnas(): String[] {
-    return [`grid-cols-${this.dias.toString()}`, `gap-4`]
-  }
-
   obtenerTextoBadgeEstado(dia: IDia): String {
     switch (dia.estado) {
       case "soleado":
