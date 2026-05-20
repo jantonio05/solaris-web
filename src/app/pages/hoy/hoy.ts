@@ -37,7 +37,7 @@ export class Hoy implements OnInit {
   obtenerTiempoDeHoy(): void {
     this.localidad = formatString(this.localidad!);
     this.openMeteoService.obtenerTiempoHoy(this.localidad!).subscribe((data) => {
-      this.tiempoHoy = data
+      this.tiempoHoy = data;
     });
   }
 
