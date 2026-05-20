@@ -13,7 +13,6 @@ export class OpenMeteoService {
   constructor(private http: HttpClient) {}
 
   obtenerTiempoHoy(localidad: String): Observable<ITiempoHoy> {
-    console.log(`${this.API_URL}/hoy/${localidad}`);
     return this.http.get<ITiempoHoy>(`${this.API_URL}/hoy/${localidad}`);
   }
 
