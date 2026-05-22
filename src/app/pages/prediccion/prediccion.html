@@ -1,13 +1,15 @@
 <solaris-header />
 
 <main>
-  <div class="bg-base-200 min-h-screen py-12 px-4">
-    <div class="max-w-7xl mx-auto mt-50">
-      @if (prediccion) {
+  @if (!estaCargando) {
+    <div class="bg-base-200 min-h-screen py-12 px-4">
+      <div class="max-w-7xl mx-auto mt-50">
         <h1 class="text-3xl font-bold text-center mb-8">
           Predicción de {{ prediccion.ubicacion.ciudad }} para los próximos {{ dias }} días.
         </h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4"
+        >
           @for (dia of prediccion.dias; track $index) {
             <div class="card bg-base-100 shadow-sm">
               <div class="card-body items-center text-center p-4">
@@ -17,10 +19,7 @@
                   [alt]="dia.estado"
                   class="w-14 h-14 object-contain my-2"
                 />
-                <div
-                  class="badge badge-sm badge-soft"
-                  [ngClass]="obtenerTipoBadgeEstado(dia)"
-                >
+                <div class="badge badge-sm badge-soft" [ngClass]="obtenerTipoBadgeEstado(dia)">
                   {{ obtenerTextoBadgeEstado(dia) }}
                 </div>
                 <p class="text-sm font-medium mt-2">
@@ -42,9 +41,15 @@
             </div>
           }
         </div>
-      }
+      </div>
     </div>
-  </div>
+  } @else {
+    <div class="hero bg-base-200 min-h-screen">
+      <div class="hero-content">
+        <span class="loading loading-spinner loading-xl"></span>
+      </div>
+    </div>
+  }
 </main>
 
 <solaris-footer />

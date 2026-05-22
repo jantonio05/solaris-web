@@ -21,6 +21,8 @@ export class Prediccion implements OnInit {
 
   prediccion!: IPrediccion;
 
+  estaCargando: Boolean = true;
+
   constructor(private route: ActivatedRoute, private openMeteoService: OpenMeteoService) {
     this.localidad = this.route.snapshot.paramMap.get('localidad');
     if (this.localidad === undefined || this.localidad === null) this.localidad = "Don Benito";
@@ -37,6 +39,9 @@ export class Prediccion implements OnInit {
     this.localidad = formatString(this.localidad!);
     this.openMeteoService.obtenerPrediccion(this.localidad, this.dias).subscribe((data) => {
       this.prediccion = data
+      if (this.prediccion != undefined) {
+        this.estaCargando = false;
+      }
     });
   }
 

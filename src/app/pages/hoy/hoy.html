@@ -3,99 +3,11 @@
 <main>
   <div class="hero bg-base-200 min-h-screen">
     <div class="hero-content">
-      <a class="hover-3d my-12 mx-2 cursor-pointer">
-        <div
-          class="card w-full max-w-xl bg-base-100 shadow-md bg-[radial-gradient(circle_at_bottom_left,#ffffff04_35%,transparent_36%),radial-gradient(circle_at_top_right,#ffffff04_35%,transparent_36%)] bg-size-[4.95em_4.95em]"
-        >
-          <div class="card-body gap-1">
-            <!-- Encabezado localidad -->
-            <h2 class="card-title text-2xl">
-              <div aria-label="status" class="status status-lg status-secondary"></div>
-              {{ tiempoHoy.ubicacion.ciudad }}
-            </h2>
-            <p class="text-sm text-base-content/50">
-              {{ tiempoHoy.ubicacion.provincia }} · {{ tiempoHoy.ubicacion.pais }}
-            </p>
-
-            <!-- Temperatura y estado -->
-            <div class="flex items-center justify-between my-4">
-              <div>
-                <p class="text-7xl font-light mb-4">
-                  {{ tiempoHoy.temperaturaActual }}{{ tiempoHoy.unidades.temperatura.charAt(0) }}
-                </p>
-                <div
-                  class="badge mt-1 mb-1 badge-sm badge-soft"
-                  [ngClass]="obtenerTipoBadgeEstado()"
-                >
-                  {{ obtenerBadgeEstado() }}
-                </div>
-                <p class="text-sm text-base-content/50 mt-1">
-                  Máx {{ tiempoHoy.temperaturaMaxima
-                  }}{{ tiempoHoy.unidades.temperatura.charAt(0) }} · Mín
-                  {{ tiempoHoy.temperaturaMaxima }}{{ tiempoHoy.unidades.temperatura.charAt(0) }}
-                </p>
-              </div>
-
-              <!-- Imagen según estado -->
-              <img
-                [src]="obtenerImagenEstado()"
-                [alt]="tiempoHoy.estado"
-                class="w-24 h-24 object-contain"
-              />
-            </div>
-
-            <div class="grid grid-cols-3 gap-3 mt-2">
-              <!-- Tarjeta Humedad -->
-              <div class="card bg-base-300 shadow-sm">
-                <div class="card-body p-3">
-                  <h2 class="card-title text-xl">Humedad</h2>
-                  <p class="text-xl text-light">
-                    {{ tiempoHoy.humedad }}
-                    <span class="text-sm text-base-content/50">{{
-                      tiempoHoy.unidades.humedad
-                    }}</span>
-                  </p>
-                </div>
-              </div>
-
-              <!-- Tarjeta Lluvia -->
-              <div class="card bg-base-300 shadow-sm">
-                <div class="card-body p-3">
-                  <h2 class="card-title text-xl">Lluvia</h2>
-                  <p class="text-xl text-light">
-                    {{ tiempoHoy.lluvia }}
-                    <span class="text-sm text-base-content/50">{{
-                      tiempoHoy.unidades.lluvia
-                    }}</span>
-                  </p>
-                </div>
-              </div>
-
-              <!-- Tarjeta Viento -->
-              <div class="card bg-base-300 shadow-sm">
-                <div class="card-body p-3">
-                  <h2 class="card-title text-xl">Viento</h2>
-                  <p class="text-xl text-light">
-                    {{ tiempoHoy.viento.velocidad }}
-                    <span class="text-sm text-base-content/50">{{
-                      tiempoHoy.unidades.viento
-                    }}</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 8 empty divs needed for the 3D effect -->
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </a>
+      @if (!estaCargando) {
+        <tarjeta-hoy [hoy]="tiempoHoy" />
+      } @else {
+        <span class="loading loading-spinner loading-xl"></span>
+      }
     </div>
   </div>
 </main>
