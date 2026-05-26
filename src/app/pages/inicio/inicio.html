@@ -1,15 +1,54 @@
-<solaris-header/>
+<solaris-header />
 
-<div class="hero bg-base-200 min-h-screen">
-  <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold">Proximamente..</h1>
-      <p class="py-6">
-        Actualmente este proyecto se encuentra en fase de construcción
-      </p>
-      <!-- <button class="btn btn-primary">Ir al repositorio</button> -->
+<section>
+  <div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title text-center">Buscador del tiempo</h2>
+
+          <!-- Input Municipio -->
+          <fieldset class="fieldset">
+            <legend class="fieldset-legend">Municipio</legend>
+            <input
+              type="text"
+              class="input"
+              placeholder="Don Benito"
+              [(ngModel)]="municipio"
+              (keyup.enter)="buscar()"
+            />
+          </fieldset>
+
+          <!-- Selector opciones -->
+          <select class="select" [(ngModel)]="accion">
+            <option disabled value="">Tipo de búsqueda</option>
+            <option value="hoy">Tiempo de hoy</option>
+            <option value="prediccion">Pronóstico</option>
+          </select>
+
+          <!-- Botón de buscar -->
+          <button
+            class="btn btn-primary"
+            (click)="buscar()"
+            [disabled]="!municipio.trim() || !accion"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="18px"
+              fill="fill-current"
+            >
+              <path
+                d="M380-320q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l224 224q11 11 11 28t-11 28q-11 11-28 11t-28-11L532-372q-30 24-69 38t-83 14Zm0-80q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+              />
+            </svg>
+            Buscar
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<solaris-footer/>
+<solaris-footer />

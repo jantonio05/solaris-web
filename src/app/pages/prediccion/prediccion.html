@@ -1,1 +1,55 @@
-<p>prediccion works!</p>
+<solaris-header />
+
+<main>
+  @if (!estaCargando) {
+    <div class="bg-base-200 min-h-screen py-12 px-4">
+      <div class="max-w-7xl mx-auto mt-50">
+        <h1 class="text-3xl font-bold text-center mb-8">
+          Predicción de {{ prediccion.ubicacion.ciudad }} para los próximos {{ dias }} días.
+        </h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4"
+        >
+          @for (dia of prediccion.dias; track $index) {
+            <div class="card bg-base-100 shadow-sm">
+              <div class="card-body items-center text-center p-4">
+                <h2 class="card-title text-sm font-semibold">{{ dia.fecha }}</h2>
+                <img
+                  [src]="obtenerImagenEstado(dia)"
+                  [alt]="dia.estado"
+                  class="w-14 h-14 object-contain my-2"
+                />
+                <div class="badge badge-sm badge-soft" [ngClass]="obtenerTipoBadgeEstado(dia)">
+                  {{ obtenerTextoBadgeEstado(dia) }}
+                </div>
+                <p class="text-sm font-medium mt-2">
+                  {{ dia.temperaturaMaxima }}{{ prediccion.unidades.temperatura.charAt(0) }}
+                  <span class="text-base-content/50 font-normal">
+                    / {{ dia.temperaturaMinima }}{{ prediccion.unidades.temperatura.charAt(0) }}
+                  </span>
+                </p>
+                <div class="divider my-1"></div>
+                <p class="text-xs text-base-content/60">
+                  <i class="bi bi-cloud-rain"></i>
+                  {{ dia.probabilidadLluvia }}% · {{ dia.lluvia }} {{ prediccion.unidades.lluvia }}
+                </p>
+                <p class="text-xs text-base-content/60">
+                  <i class="bi bi-wind"></i>
+                  {{ dia.viento }} {{ prediccion.unidades.viento }}
+                </p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="hero bg-base-200 min-h-screen">
+      <div class="hero-content">
+        <span class="loading loading-spinner loading-xl"></span>
+      </div>
+    </div>
+  }
+</main>
+
+<solaris-footer />

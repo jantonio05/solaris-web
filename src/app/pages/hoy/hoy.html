@@ -1,1 +1,15 @@
-<p>hoy works!</p>
+<solaris-header />
+
+<main>
+  <div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content">
+      @if (!estaCargando) {
+        <tarjeta-hoy [hoy]="tiempoHoy" />
+      } @else {
+        <span class="loading loading-spinner loading-xl"></span>
+      }
+    </div>
+  </div>
+</main>
+
+<solaris-footer />
