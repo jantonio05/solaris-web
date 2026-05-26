@@ -1,10 +1,8 @@
 <div align="center">
     <img src="public/hero/solaris-logo-hero.svg" width="90%">
 </div>
-![stars](https://img.shields.io/github/stars/jantonio05/solaris-web)
 
-## Requisitos
-Por definir...
+![stars](https://img.shields.io/github/stars/jantonio05/solaris-web)
 
 ## Instalación
 
