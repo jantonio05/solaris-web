@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ITiempoHoy } from '../../model/ITiempoHoy';
 import { OpenMeteoService } from '../../services/open-meteo-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { formatString } from '../../utils/string.utils';
 import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
@@ -9,7 +9,7 @@ import { TarjetaHoy } from "../../components/tarjeta-hoy/tarjeta-hoy";
 
 @Component({
   selector: 'app-hoy',
-  imports: [Header, Footer, TarjetaHoy],
+  imports: [Header, Footer, TarjetaHoy, RouterLink],
   templateUrl: './hoy.html',
   styleUrl: './hoy.css',
 })

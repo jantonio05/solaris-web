@@ -1,5 +1,3 @@
-import { Estado } from "./Estado";
-
 export interface IDia {
     fecha: Date;
     temperaturaMaxima: Number;

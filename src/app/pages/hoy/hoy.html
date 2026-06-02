@@ -6,7 +6,10 @@
       @if (!estaCargando) {
         <tarjeta-hoy [hoy]="tiempoHoy" />
       } @else {
-        <span class="loading loading-spinner loading-xl"></span>
+        <div class="grid justify-items-center gap-12">
+          <span class="col loading loading-spinner loading-xl"></span>
+          <button class="col btn btn-primary" routerLink="/inicio">Volver a inicio</button>
+        </div>
       }
     </div>
   </div>

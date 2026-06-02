@@ -1,4 +1,3 @@
-import { Estado } from "./Estado";
 import { IUbicacion } from "./IUbicacion";
 import { IUnidades } from "./IUnidades";
 import { IViento } from "./IVIento";
